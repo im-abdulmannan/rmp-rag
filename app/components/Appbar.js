@@ -8,7 +8,7 @@ const Appbar = () => {
     <AppBar
       position="sticky"
       sx={{
-        backgroundColor: (theme) => theme.palette.snuff[400],
+        backgroundColor: (theme) => theme.palette.snuff[700],
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>

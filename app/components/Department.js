@@ -1,11 +1,10 @@
-import React from "react";
-import { Box, Grid, Typography, Button, Icon } from "@mui/material";
 import BookIcon from "@mui/icons-material/Book";
 import GroupIcon from "@mui/icons-material/Group";
 import LaptopIcon from "@mui/icons-material/Laptop";
 import MicIcon from "@mui/icons-material/Mic";
-import WorkIcon from "@mui/icons-material/Work";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import WorkIcon from "@mui/icons-material/Work";
+import { Box, Container, Grid, Icon, Typography } from "@mui/material";
 
 const features = [
   {
@@ -49,6 +48,7 @@ const features = [
 const Department = () => {
   return (
     <Box sx={{ padding: "2rem" }}>
+      <Container maxWidth="lg">
       <Typography variant="h4" align="center" gutterBottom>
         Why Choose US?
       </Typography>
@@ -84,7 +84,7 @@ const Department = () => {
                   {feature.description}
                 </Typography>
               </Box>
-              <Button
+              {/* <Button
                 variant="contained"
                 sx={{
                   padding: "0.75rem 2rem",
@@ -96,7 +96,8 @@ const Department = () => {
                   textTransform: "none",
                   borderRadius: "30px",
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.15)",
-                  transition: "all 0.3s ease",
+                  transition: "all 0.3s ease-in-out",
+                  transitionDuration: "0.2s",
                   "&:hover": {
                     background:
                       "linear-gradient(45deg, #7b1fa2 30%, #3f51b5 90%)",
@@ -105,11 +106,12 @@ const Department = () => {
                 }}
               >
                 Read More
-              </Button>
+              </Button> */}
             </Box>
           </Grid>
         ))}
       </Grid>
+      </Container>
     </Box>
   );
 };

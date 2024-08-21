@@ -58,6 +58,7 @@ const theme = createTheme({
       styleOverrides: () => ({
         body: {
           backgroundColor: theme.palette.snuff[200],
+          color: theme.palette.snuff[950]
         },
         "::-webkit-scroll-behavior": {
           scrollbarBehavior: "smooth",
