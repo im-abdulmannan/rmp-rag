@@ -2,13 +2,22 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
 
 function Copyright() {
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTitle(document.title);
+    }
+  }, []);
+
   return (
     <Typography variant="body2" color="text.primary">
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        {title}
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -27,10 +36,7 @@ const Footer = () => {
         backgroundColor: (theme) => theme.palette.snuff[700],
       }}
     >
-      <Container maxWidth="sm">
-        <Typography variant="body1">
-          My sticky footer can be found here.
-        </Typography>
+      <Container maxWidth="md">
         <Copyright />
       </Container>
     </Box>

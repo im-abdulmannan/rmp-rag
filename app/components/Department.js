@@ -47,9 +47,9 @@ const features = [
 
 const Department = () => {
   return (
-    <Box sx={{ padding: "2rem" }}>
+    <Box sx={{ padding: "2rem", my: "4rem" }}>
       <Container maxWidth="lg">
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h2" align="center" gutterBottom>
         Why Choose US?
       </Typography>
       <Grid container spacing={4}>

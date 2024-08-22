@@ -18,7 +18,10 @@ const Appbar = () => {
           </Typography>
         </Link>
 
-        <Box display={"flex"} gap={2}>
+        <Box display={"flex"} gap={2} alignItems={"center"}>
+          <Button color="inherit" href="/professors" variant="text">
+              Professors
+            </Button>
           <SignedOut>
             <Button color="inherit" href="/sign-in" variant="text">
               Login
@@ -28,8 +31,8 @@ const Appbar = () => {
             </Button>
           </SignedOut>
           <SignedIn>
-            <Button color="inherit" href="/flashcards" variant="text">
-              My Flashcards
+            <Button color="inherit" href="/chat" variant="text">
+              Chat
             </Button>
             <UserButton />
           </SignedIn>

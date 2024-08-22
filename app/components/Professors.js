@@ -1,15 +1,14 @@
-import React from "react";
+import GoogleIcon from "@mui/icons-material/Google";
+import LinkIcon from "@mui/icons-material/Link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import {
+  Avatar,
+  Box,
   Container,
   Grid,
-  Box,
-  Avatar,
-  Typography,
   IconButton,
+  Typography,
 } from "@mui/material";
-import LinkIcon from "@mui/icons-material/Link";
-import GoogleIcon from "@mui/icons-material/Google";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const profiles = [
   {
@@ -40,8 +39,9 @@ const profiles = [
 
 const Professors = () => {
   return (
-    <Container sx={{ mt: 5, pb: 5 }}>
-      <Typography variant="h4" align="center" sx={{ mb: 5 }}>
+    <Box sx={{ padding: "2rem", my: "4rem" }}>
+      <Container maxWidth="lg">
+      <Typography variant="h3" align="center" gutterBottom>
         Our Teachers
       </Typography>
       <Grid
@@ -102,6 +102,7 @@ const Professors = () => {
         ))}
       </Grid>
     </Container>
+    </Box>
   );
 };
 
