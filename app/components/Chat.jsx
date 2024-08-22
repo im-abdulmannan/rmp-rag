@@ -1,5 +1,4 @@
-import { useUser } from "@clerk/nextjs";
-import { Send } from "@mui/icons-material";
+import { Send, SmartToyTwoTone } from "@mui/icons-material";
 import {
     Box,
     Container,
@@ -8,29 +7,19 @@ import {
     Paper,
     Stack,
 } from "@mui/material";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import theme from "../theme";
 
-const Chat = () => {
-  const { isLoaded, isSignedIn, user } = useUser();
-  const router = useRouter();
-
+const Chat = ({user}) => {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content: `Hi! I'm the Rate My Professor support assistant. How can I help you today?`,
+      content: `Hi ${user.fullName}! I'm the Rate My Professor support assistant. How can I help you today?`,
     },
   ]);
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (isLoaded) {
-      if (!user) {
-        router.push("/sign-in");
-      }
-    }
-  }, [isLoaded, router, user]);
 
   const sendMessage = async () => {
     setMessage("");
@@ -69,6 +58,7 @@ const Chat = () => {
         return reader.read().then(processText);
       });
     });
+    console.log("🚀 ~ sendMessage ~ response:", response);
   };
 
   return (
@@ -100,9 +90,30 @@ const Chat = () => {
                   sx={{
                     p: "12px 15px",
                     fontSize: { xs: "12px", sm: "14px", md: "16px" },
+                    minHeight: "3rem"
                   }}
                 >
-                  {message.content}
+                  {message.role === "assistant" ? (
+                    <Container
+                      sx={{
+                        position: "relative",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          left: -9,
+                        }}
+                      >
+                        <SmartToyTwoTone />
+                      </Box>
+                      <Markdown remarkPlugins={[remarkGfm]}>
+                        {message.content}
+                      </Markdown>
+                    </Container>
+                  ) : (
+                    <>{message.content}</>
+                  )}
                 </Box>
               </Box>
             </Container>

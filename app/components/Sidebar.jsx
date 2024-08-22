@@ -1,19 +1,19 @@
 import {
-    AccountCircleOutlined,
-    KeyboardDoubleArrowLeft,
-    KeyboardDoubleArrowRight
+  AccountCircleOutlined,
+  KeyboardDoubleArrowLeft,
+  KeyboardDoubleArrowRight
 } from "@mui/icons-material";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import {
-    Box,
-    Button,
-    Container,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    TextField,
+  Box,
+  Button,
+  Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
 } from "@mui/material";
 import { useState } from "react";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
