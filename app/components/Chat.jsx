@@ -1,11 +1,11 @@
 import { Send, SmartToyTwoTone } from "@mui/icons-material";
 import {
-    Box,
-    Container,
-    IconButton,
-    InputBase,
-    Paper,
-    Stack,
+  Box,
+  Container,
+  IconButton,
+  InputBase,
+  Paper,
+  Stack,
 } from "@mui/material";
 import { useState } from "react";
 import Markdown from "react-markdown";
@@ -22,12 +22,13 @@ const Chat = ({ user }) => {
   const [message, setMessage] = useState("");
 
   const sendMessage = async () => {
-    setMessage("");
+    if(message === "") return;
     setMessages((messages) => [
       ...messages,
       { role: "user", content: message },
       { role: "assistant", content: "" },
     ]);
+    setMessage("");
 
     const response = fetch("/api/chat", {
       method: "POST",

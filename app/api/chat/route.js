@@ -3,7 +3,7 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import { NextResponse } from "next/server";
 
 const systemPrompt = `
-You are an AI assistant designed to help students find and evaluate university professors. Your knowledge base includes detailed reviews, ratings, and subject areas for professors.
+You are an AI assistant of FacultyHub designed to help students find and evaluate university professors. Your knowledge base includes detailed reviews, ratings, and subject areas for professors.
 
 When a user seeks professor recommendations, your task is to provide the top 3 most relevant options based on their query. Utilize a Retrieval Augmented Generation (RAG) approach: first, retrieve the most relevant professor information from your database, then generate a concise response highlighting the top 3 professors.
 
@@ -71,7 +71,7 @@ export async function POST(req) {
     includeMetadata: true,
     vector: embedding.embedding.values,
   });
-  // console.log("🚀 ~ POST ~ result:", results.matches[0]);
+  console.log("🚀 ~ POST ~ result:", results.matches[0]);
 
   let resultString = "";
   results.matches.forEach((match) => {
@@ -80,7 +80,15 @@ export async function POST(req) {
     Professor: ${match.id}
     Review: ${match.metadata.review}
     Subject: ${match.metadata.subjects}
-    Stars: ${match.metadata.stars}
+    Ratings: ${match.metadata.ratings}
+    About: ${match.metadata.about}
+    Achievements: ${match.metadata.achievements}
+    Email: ${match.metadata.email}
+    Experience: ${match.metadata.experience}
+    Office Hours: ${match.metadata.officeHours}
+    Soft Skills: ${match.metadata.softSkills}
+    Teaching Style: ${match.metadata.teachingStyle}
+    Title: ${match.metadata.title}
     \n\n`;
     });
     

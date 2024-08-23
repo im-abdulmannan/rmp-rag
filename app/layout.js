@@ -7,8 +7,8 @@ import theme from "./theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AI Rate My Professor",
-  description: "Generate Your Professor - Gemini",
+  title: "FacultyHub",
+  description: "Get Your Own Professor - Gemini",
 };
 
 export default function RootLayout({ children }) {

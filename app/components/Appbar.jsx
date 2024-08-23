@@ -2,8 +2,15 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Appbar = () => {
+  const [title, setTitle] = useState("");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTitle(document.title);
+    }
+  }, [title]);
   return (
     <AppBar
       position="sticky"
@@ -14,14 +21,14 @@ const Appbar = () => {
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Link href={"/"} style={{ textDecoration: "none" }}>
           <Typography variant="h6" style={{ flexGrow: 1, color: "white" }}>
-            AI Rate My Professor
+            {title}
           </Typography>
         </Link>
 
         <Box display={"flex"} gap={2} alignItems={"center"}>
           <Button color="inherit" href="/professors" variant="text">
-              Professors
-            </Button>
+            Professors
+          </Button>
           <SignedOut>
             <Button color="inherit" href="/sign-in" variant="text">
               Login
