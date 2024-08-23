@@ -6,18 +6,19 @@ import theme from "../theme";
 const Hero = () => {
   return (
     <Box
-      height={"90vh"}
+      height={"100vh"}
       sx={{
-        background: "linear-gradient(45deg, #3f51b52e 30%, #7b1fa27c 90%)",
+        background: `linear-gradient(45deg, ${theme.palette.emerald[800]} 30%, ${theme.palette.emerald[600]} 90%)`,
         display: "flex",
-        alignItems: "center"
+        alignItems: "center",
+        color: "white",
       }}
     >
       <Container maxWidth="md">
         <Typography variant="h1" fontWeight={700}>
-            Learn and grow together
+          Learn and grow together
         </Typography>
-        <Typography variant="h3" color={theme.palette.snuff[700]}>
+        <Typography variant="h3" color={theme.palette.emerald[200]}>
           A place where creativity meets passion
         </Typography>
       </Container>

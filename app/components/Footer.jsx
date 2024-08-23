@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
+import theme from "../theme";
 
 function Copyright() {
   const [title, setTitle] = useState("");
@@ -14,9 +15,9 @@ function Copyright() {
   }, []);
 
   return (
-    <Typography variant="body2" color="text.primary">
+    <Typography variant="body2" color={theme.palette.emerald[100]}>
       {"Copyright © "}
-      <Link color="inherit" href="/">
+      <Link color={theme.palette.emerald[200]} href="/">
         {title}
       </Link>{" "}
       {new Date().getFullYear()}
@@ -33,7 +34,7 @@ const Footer = () => {
         py: 2,
         px: 2,
         mt: "auto",
-        backgroundColor: (theme) => theme.palette.snuff[700],
+        backgroundColor: theme.palette.emerald[700],
       }}
     >
       <Container maxWidth="md">

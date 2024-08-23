@@ -12,8 +12,11 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
+  TextField,
+  Button,
 } from "@mui/material";
 import Appbar from "../components/Appbar";
+import Footer from "../components/Footer";
 import { useState } from "react";
 
 const professors = [
@@ -32,7 +35,7 @@ const professors = [
     ],
     experience: 8,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. John Miller",
@@ -49,7 +52,7 @@ const professors = [
     ],
     experience: 7,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Dr. Emma Davis",
@@ -70,7 +73,7 @@ const professors = [
     ],
     experience: 6,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. Michael Johnson",
@@ -87,7 +90,7 @@ const professors = [
     ],
     experience: 9,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Dr. Olivia Brown",
@@ -104,7 +107,7 @@ const professors = [
     ],
     experience: 5,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. William Harris",
@@ -121,7 +124,7 @@ const professors = [
     ],
     experience: 7,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Dr. Sophia Wilson",
@@ -138,7 +141,7 @@ const professors = [
     ],
     experience: 4,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. James White",
@@ -159,7 +162,7 @@ const professors = [
     ],
     experience: 6,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Dr. Charlotte Lee",
@@ -176,7 +179,7 @@ const professors = [
     ],
     experience: 5,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. Henry Martinez",
@@ -197,7 +200,7 @@ const professors = [
     ],
     experience: 8,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Dr. Emily Clark",
@@ -218,7 +221,7 @@ const professors = [
     ],
     experience: 6,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. Daniel Evans",
@@ -235,7 +238,7 @@ const professors = [
     ],
     experience: 7,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Dr. Jessica Taylor",
@@ -252,7 +255,7 @@ const professors = [
     ],
     experience: 4,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
   {
     name: "Prof. Benjamin King",
@@ -270,13 +273,18 @@ const professors = [
     achievements: ["Published 10 research papers"],
     experience: 5,
     image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "https://a0.anyrgb.com/pngimg/952/1250/placeholder-headshot-parker-president-manager-deposit-avatar-microphone-facial-hair-gentleman.png",
   },
 ];
 
-const page = () => {
+const Page = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedProfessor, setSelectedProfessor] = useState(null);
+  const [contactDetails, setContactDetails] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const handleOpenDialog = (professor) => {
     setSelectedProfessor(professor);
@@ -288,13 +296,26 @@ const page = () => {
     setSelectedProfessor(null);
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContactDetails({
+      ...contactDetails,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Contact Details Submitted: ", contactDetails);
+  };
+
   return (
     <Box>
       <Appbar />
       <Box
         height={"40vh"}
         sx={{
-          background: "linear-gradient(45deg, #3f51b52e 30%, #7b1fa27c 90%)",
+          background: "linear-gradient(45deg, #10b981 30%, #059669 90%)",
           display: "flex",
           alignItems: "center",
         }}
@@ -304,7 +325,7 @@ const page = () => {
             variant="h2"
             sx={{
               fontWeight: 600,
-              color: "#ffffff",
+              color: "#fff",
               textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
             }}
           >
@@ -312,7 +333,6 @@ const page = () => {
           </Typography>
         </Container>
       </Box>
-
       <Container maxWidth="lg" sx={{ my: 5 }}>
         <Grid container spacing={3} justifyContent="center">
           {professors.map((professor, index) => (
@@ -324,8 +344,8 @@ const page = () => {
                   padding: 3,
                   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
                   borderRadius: 4,
-                  backgroundColor: "#F3E5F5",
-                  color: "#333",
+                  backgroundColor: "#ffffff",
+                  color: "#064e3b",
                   minHeight: 320,
                   width: "100%",
                   maxWidth: 800,
@@ -349,7 +369,7 @@ const page = () => {
                       width: 90,
                       height: 90,
                       marginRight: 2,
-                      backgroundColor: "#8E24AA",
+                      backgroundColor: "#10b981",
                       fontSize: "2rem",
                       color: "#fff",
                       fontWeight: 500,
@@ -365,13 +385,13 @@ const page = () => {
                   <CardContent sx={{ flex: 1 }}>
                     <Typography
                       variant="h6"
-                      sx={{ fontWeight: 600, color: "#5E35B1" }}
+                      sx={{ fontWeight: 600, color: "#064e3b" }}
                     >
                       {professor.name}
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ color: "#7B1FA2", marginBottom: 1 }}
+                      sx={{ color: "#059669", marginBottom: 1 }}
                     >
                       {professor.email}
                     </Typography>
@@ -392,7 +412,7 @@ const page = () => {
                       key={idx}
                       label={subject}
                       sx={{
-                        backgroundColor: "#7E57C2",
+                        backgroundColor: "#34d399",
                         color: "#fff",
                         fontWeight: 500,
                         margin: "2px 0",
@@ -405,6 +425,136 @@ const page = () => {
           ))}
         </Grid>
       </Container>
+      <Container maxWidth="lg" sx={{ my: 5 }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 600,
+            color: "#064e3b",
+            mb: 3,
+            textAlign: "center",
+          }}
+        >
+          Contact Us
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 3,
+            backgroundColor: "#ecfdf5",
+            padding: 4,
+            borderRadius: 2,
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <TextField
+            label="Name"
+            name="name"
+            variant="outlined"
+            value={contactDetails.name}
+            onChange={handleChange}
+            required
+            sx={{
+              backgroundColor: "#ffffff",
+              "& .MuiInputLabel-root": {
+                color: "#059669",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#059669",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#059669",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#059669",
+                },
+              },
+            }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder="Your Name"
+          />
+          <TextField
+            label="Email"
+            name="email"
+            variant="outlined"
+            type="email"
+            value={contactDetails.email}
+            onChange={handleChange}
+            required
+            sx={{
+              backgroundColor: "#ffffff",
+              "& .MuiInputLabel-root": {
+                color: "#059669",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#059669",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#059669",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#059669",
+                },
+              },
+            }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder="Your Email"
+          />
+          <TextField
+            label="Message"
+            name="message"
+            variant="outlined"
+            multiline
+            rows={4}
+            value={contactDetails.message}
+            onChange={handleChange}
+            required
+            sx={{
+              backgroundColor: "#ffffff",
+              "& .MuiInputLabel-root": {
+                color: "#059669",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#059669",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#059669",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#059669",
+                },
+              },
+            }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder="Your Message"
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{
+              backgroundColor: "#10b981",
+              color: "#fff",
+              "&:hover": {
+                backgroundColor: "#059669",
+              },
+            }}
+          >
+            Send Message
+          </Button>
+        </Box>
+      </Container>
       <Dialog
         open={openDialog}
         onClose={handleCloseDialog}
@@ -414,7 +564,7 @@ const page = () => {
         <DialogTitle
           sx={{
             fontWeight: 600,
-            backgroundColor: "#8E24AA",
+            backgroundColor: "#10b981",
             color: "#fff",
             textAlign: "center",
             position: "relative",
@@ -448,75 +598,50 @@ const page = () => {
             </Typography>
           </Box>
         </DialogTitle>
-        <DialogContent
-          sx={{
-            padding: 3,
-            backgroundColor: "#F3E5F5",
-          }}
-        >
+        <DialogContent sx={{ padding: 3 }}>
           <Box sx={{ mb: 2 }}>
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: 600, color: "#5E35B1", mt: "2rem" }}
-            >
-              Subjects
+            <Typography variant="h6" sx={{ fontWeight: 600, color: "#064e3b" }}>
+              Bio
             </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 0.5,
-                mt: 1,
-              }}
-            >
-              {selectedProfessor?.subjects.map((subject, idx) => (
-                <Chip
-                  key={idx}
-                  label={subject}
-                  sx={{
-                    backgroundColor: "#7E57C2",
-                    color: "#fff",
-                    fontWeight: 500,
-                    margin: "2px 0",
-                  }}
-                />
-              ))}
-            </Box>
+            <Typography sx={{ color: "#064e3b" }}>
+              {selectedProfessor?.bio}
+            </Typography>
           </Box>
           <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600, color: "#5E35B1" }}>
-              Review
-            </Typography>
-            <Typography>{selectedProfessor?.review}</Typography>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600, color: "#5E35B1" }}>
+            <Typography variant="h6" sx={{ fontWeight: 600, color: "#064e3b" }}>
               History
             </Typography>
-            <Typography>{selectedProfessor?.history}</Typography>
+            <Typography sx={{ color: "#064e3b" }}>
+              {selectedProfessor?.history}
+            </Typography>
           </Box>
           <Box sx={{ mb: 2 }}>
-            <Typography variant="h6" sx={{ fontWeight: 600, color: "#5E35B1" }}>
+            <Typography variant="h6" sx={{ fontWeight: 600, color: "#064e3b" }}>
               Achievements
             </Typography>
             <ul>
               {selectedProfessor?.achievements.map((achievement, idx) => (
                 <li key={idx}>
-                  <Typography>{achievement}</Typography>
+                  <Typography sx={{ color: "#064e3b" }}>
+                    {achievement}
+                  </Typography>
                 </li>
               ))}
             </ul>
           </Box>
           <Box>
-            <Typography variant="h6" sx={{ fontWeight: 600, color: "#5E35B1" }}>
+            <Typography variant="h6" sx={{ fontWeight: 600, color: "#064e3b" }}>
               Experience
             </Typography>
-            <Typography>{selectedProfessor?.experience} years</Typography>
+            <Typography sx={{ color: "#064e3b" }}>
+              {selectedProfessor?.experience} years
+            </Typography>
           </Box>
         </DialogContent>
       </Dialog>
+      <Footer />
     </Box>
   );
 };
 
-export default page;
+export default Page;

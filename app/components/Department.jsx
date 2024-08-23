@@ -5,6 +5,7 @@ import MicIcon from "@mui/icons-material/Mic";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import WorkIcon from "@mui/icons-material/Work";
 import { Box, Container, Grid, Icon, Typography } from "@mui/material";
+import theme from "../theme";
 
 const features = [
   {
@@ -49,68 +50,46 @@ const Department = () => {
   return (
     <Box sx={{ padding: "2rem", my: "4rem" }}>
       <Container maxWidth="lg">
-      <Typography variant="h2" align="center" gutterBottom>
-        Why Choose US?
-      </Typography>
-      <Grid container spacing={4}>
-        {features.map((feature, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                textAlign: "center",
-                padding: "1.5rem",
-                borderRadius: "8px",
-                boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.1)",
-                height: "100%",
-              }}
-            >
-              <Icon
+        <Typography variant="h2" align="center" gutterBottom>
+          Why Choose Us?
+        </Typography>
+        <Grid container spacing={4}>
+          {features.map((feature, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Box
                 sx={{
-                  fontSize: "50px",
-                  color: "#3f51b5",
-                  marginBottom: "1rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  textAlign: "center",
+                  padding: "1.5rem",
+                  borderRadius: "8px",
+                  boxShadow: 3,
+                  backgroundColor: "white",
+                  height: "100%",
                 }}
               >
-                {feature.icon}
-              </Icon>
-              <Box sx={{ flexGrow: 1 }}>
-                <Typography variant="h6" gutterBottom>
-                  {feature.title}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  {feature.description}
-                </Typography>
+                <Icon
+                  sx={{
+                    fontSize: "50px",
+                    color: theme.palette.emerald[600],
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {feature.icon}
+                </Icon>
+                <Box sx={{ flexGrow: 1 }}>
+                  <Typography variant="h6" gutterBottom>
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body1" gutterBottom>
+                    {feature.description}
+                  </Typography>
+                </Box>
               </Box>
-              {/* <Button
-                variant="contained"
-                sx={{
-                  padding: "0.75rem 2rem",
-                  background:
-                    "linear-gradient(45deg, #3f51b5 30%, #7b1fa2 90%)",
-                  color: "#fff",
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  textTransform: "none",
-                  borderRadius: "30px",
-                  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.15)",
-                  transition: "all 0.3s ease-in-out",
-                  transitionDuration: "0.2s",
-                  "&:hover": {
-                    background:
-                      "linear-gradient(45deg, #7b1fa2 30%, #3f51b5 90%)",
-                    boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)",
-                  },
-                }}
-              >
-                Read More
-              </Button> */}
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Box>
   );
