@@ -15,18 +15,18 @@ const theme = createTheme({
       primary: "#c1afd6",
       secondary: "#E9E6DD",
     },
-    snuff: {
-      50: "#f9f7fb",
-      100: "#f3f0f7",
-      200: "#e9e3f1",
-      300: "#d5cae4",
-      400: "#c1afd6",
-      500: "#aa8fc3",
-      600: "#9875b2",
-      700: "#87629f",
-      800: "#715285",
-      900: "#5e446e",
-      950: "#3c2c49",
+    emerald: {
+      50: "#ecfdf5",
+      100: "#d1fae5",
+      200: "#a7f3d0",
+      300: "#6ee7b7",
+      400: "#34d399",
+      500: "#10b981",
+      600: "#059669",
+      700: "#047857",
+      800: "#065f46",
+      900: "#064e3b",
+      950: "#022c22",
     },
   },
   typography: {
@@ -57,8 +57,8 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: () => ({
         body: {
-          backgroundColor: theme.palette.snuff[200],
-          color: theme.palette.snuff[950]
+          backgroundColor: theme.palette.emerald[200],
+          color: theme.palette.emerald[950],
         },
         "::-webkit-scroll-behavior": {
           scrollbarBehavior: "smooth",

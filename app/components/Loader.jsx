@@ -8,7 +8,7 @@ const Loader = () => {
         height: "100vh", display: "flex", alignItems : "center", justifyContent: "center",
     }}>
         <CircularProgress size="4rem" sx={{
-            color: theme.palette.snuff[900]
+            color: theme.palette.emerald[900]
         }} />
     </Box>
   )

@@ -1,9 +1,9 @@
 import {
   AccountCircleOutlined,
   KeyboardDoubleArrowLeft,
-  KeyboardDoubleArrowRight
+  KeyboardDoubleArrowRight,
 } from "@mui/icons-material";
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import {
   Box,
   Button,
@@ -19,29 +19,29 @@ import { useState } from "react";
 import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 import theme from "../theme";
 
-const SidebarComponent = ({user}) => {
+const SidebarComponent = ({ user }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <Sidebar
-        backgroundColor={`${theme.palette.snuff[700]}`}
-        collapsed={isCollapsed ? true : false}
+        backgroundColor={theme.palette.emerald[800]}
+        collapsed={isCollapsed}
         rootStyles={{
-          border: `1px solid ${theme.palette.snuff[700]}`,
+          border: `1px solid ${theme.palette.emerald[900]}`,
         }}
       >
         <Menu
           rootStyles={{
             padding: "12px",
-            color: "white",
+            color: theme.palette.emerald[50],
             height: "50px",
             fontFamily: "sans-serif",
             fontSize: "20px",
             fontWeight: 600,
             marginTop: "7px",
-            marginBottom: "7px"
+            marginBottom: "7px",
           }}
         >
           <Box
@@ -56,12 +56,12 @@ const SidebarComponent = ({user}) => {
               {isCollapsed ? (
                 <KeyboardDoubleArrowRight
                   sx={{
-                    color: "white",
-                    backgroundColor: theme.palette.snuff[600],
+                    color: theme.palette.emerald[50],
+                    backgroundColor: theme.palette.emerald[700],
                     cursor: "pointer",
                     borderRadius: "5px",
                     "&:hover": {
-                      backgroundColor: theme.palette.snuff[500],
+                      backgroundColor: theme.palette.emerald[600],
                     },
                   }}
                   onClick={() => setIsCollapsed(!isCollapsed)}
@@ -69,12 +69,12 @@ const SidebarComponent = ({user}) => {
               ) : (
                 <KeyboardDoubleArrowLeft
                   sx={{
-                    color: "white",
-                    backgroundColor: theme.palette.snuff[600],
+                    color: theme.palette.emerald[50],
+                    backgroundColor: theme.palette.emerald[700],
                     cursor: "pointer",
                     borderRadius: "5px",
                     "&:hover": {
-                      backgroundColor: theme.palette.snuff[500],
+                      backgroundColor: theme.palette.emerald[600],
                     },
                   }}
                   onClick={() => setIsCollapsed(!isCollapsed)}
@@ -86,12 +86,11 @@ const SidebarComponent = ({user}) => {
 
         <Menu
           rootStyles={{
-            borderTop: `1px solid ${theme.palette.snuff[900]}`,
-            color: "whitesmoke",
+            borderTop: `1px solid ${theme.palette.emerald[900]}`,
+            color: theme.palette.emerald[50],
             paddingTop: "10px",
             paddingBottom: "10px",
           }}
-          menuItemStyles={{}}
         >
           <Box
             width={"100%"}
@@ -103,6 +102,7 @@ const SidebarComponent = ({user}) => {
           >
             <AccountCircleOutlined
               fontSize={`${isCollapsed ? "medium" : "large"}`}
+              sx={{ color: theme.palette.emerald[50] }}
             />
           </Box>
           {!isCollapsed && (
@@ -113,6 +113,7 @@ const SidebarComponent = ({user}) => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 fontSize: "16px",
+                color: theme.palette.emerald[50],
               }}
             >
               <Box>{user.fullName}</Box>
@@ -124,14 +125,14 @@ const SidebarComponent = ({user}) => {
           rootStyles={{
             position: "absolute",
             bottom: "2px",
-            width: "-webkit-fill-available",
+            width: "100%",
           }}
           menuItemStyles={{
             button: {
-              background: theme.palette.snuff[600],
+              background: theme.palette.emerald[700],
               width: "100% !important",
               "&:hover": {
-                background: theme.palette.snuff[500],
+                background: theme.palette.emerald[600],
               },
             },
           }}
@@ -140,14 +141,14 @@ const SidebarComponent = ({user}) => {
             <Box
               variant="text"
               sx={{
-                color: "white",
+                color: theme.palette.emerald[50],
                 display: "flex",
                 gap: "10px",
                 alignItems: "center",
                 justifyContent: `${isCollapsed ? "center" : "flex-start"}`,
               }}
             >
-              <OpenInNewIcon color="text.primary" />
+              <OpenInNewIcon />
               {!isCollapsed && <p>Subscription</p>}
             </Box>
           </MenuItem>
@@ -164,7 +165,7 @@ const SidebarComponent = ({user}) => {
             const formJson = Object.fromEntries(formData.entries());
             const email = formJson.email;
             console.log(email);
-            handleClose();
+            setOpen(false);
           },
         }}
       >
@@ -178,7 +179,7 @@ const SidebarComponent = ({user}) => {
             autoFocus
             required
             margin="dense"
-            id="name"
+            id="email"
             name="email"
             label="Email Address"
             type="email"
@@ -187,7 +188,7 @@ const SidebarComponent = ({user}) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(!open)}>Cancel</Button>
+          <Button onClick={() => setOpen(false)}>Cancel</Button>
           <Button type="submit">Subscribe</Button>
         </DialogActions>
       </Dialog>

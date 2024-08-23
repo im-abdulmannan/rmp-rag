@@ -12,7 +12,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import theme from "../theme";
 
-const Chat = ({user}) => {
+const Chat = ({ user }) => {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
@@ -70,6 +70,7 @@ const Chat = ({user}) => {
         overflow="auto"
         height={"80vh"}
         padding={2}
+        sx={{ backgroundColor: theme.palette.emerald[100] }} // Light green background
       >
         {messages.map((message, index) => (
           <Box key={index}>
@@ -83,14 +84,15 @@ const Chat = ({user}) => {
                 <Box
                   bgcolor={
                     message.role === "assistant"
-                      ? theme.palette.snuff[600]
-                      : theme.palette.snuff[500]
+                      ? theme.palette.emerald[200] // Lighter green for assistant
+                      : theme.palette.emerald[300] // Slightly darker green for user
                   }
                   borderRadius={3}
                   sx={{
                     p: "12px 15px",
                     fontSize: { xs: "12px", sm: "14px", md: "16px" },
-                    minHeight: "3rem"
+                    minHeight: "3rem",
+                    maxWidth: "80%",
                   }}
                 >
                   {message.role === "assistant" ? (
@@ -138,9 +140,9 @@ const Chat = ({user}) => {
             alignItems: "center",
             width: "100%",
             height: { sm: "100%" },
-            backgroundColor: theme.palette.snuff[700],
+            backgroundColor: theme.palette.emerald[700], // Darker green for input area
             boxShadow: "0 3px 5px rgba(0, 0, 0, 0.2)",
-            border: `2px solid ${theme.palette.snuff[600]}`,
+            border: `2px solid ${theme.palette.emerald[600]}`,
             borderRadius: 2,
           }}
         >
@@ -149,7 +151,7 @@ const Chat = ({user}) => {
               ml: 1,
               flex: 1,
               fontSize: "16px",
-              color: theme.palette.snuff[50],
+              color: theme.palette.emerald[50],
             }}
             placeholder="Message"
             value={message}
@@ -157,7 +159,7 @@ const Chat = ({user}) => {
           />
           <IconButton
             type="button"
-            sx={{ p: "10px", color: theme.palette.snuff[50] }}
+            sx={{ p: "10px", color: theme.palette.emerald[50] }}
             onClick={sendMessage}
           >
             <Send />
