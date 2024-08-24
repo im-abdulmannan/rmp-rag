@@ -7,7 +7,7 @@ import theme from "./theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Silicon Valley",
+  title: "FacultyHub",
   description: "Get Your Own Professor - Gemini",
 };
 
