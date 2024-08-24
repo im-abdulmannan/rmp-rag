@@ -156,6 +156,8 @@ const Page = () => {
           </Button>
         </Box>
       </Container>
+      <br />
+      <br />
       <Footer />
     </Box>
   );
