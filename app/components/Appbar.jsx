@@ -29,6 +29,9 @@ const Appbar = () => {
           <Button color="inherit" href="/professors" variant="text">
             Professors
           </Button>
+          <Button color="inherit" href="/contact-us" variant="text">
+            Contact
+          </Button>
           <SignedOut>
             <Button color="inherit" href="/sign-in" variant="text">
               Login

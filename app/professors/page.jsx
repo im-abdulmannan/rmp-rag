@@ -4,7 +4,6 @@ import { professors } from "@/data";
 import {
   Avatar,
   Box,
-  Button,
   Card,
   CardContent,
   Chip,
@@ -13,8 +12,7 @@ import {
   DialogContent,
   DialogTitle,
   Grid,
-  TextField,
-  Typography,
+  Typography
 } from "@mui/material";
 import { useState } from "react";
 import Appbar from "../components/Appbar";
@@ -29,6 +27,7 @@ const Page = () => {
     email: "",
     message: "",
   });
+  console.log(selectedProfessor);
 
   const handleOpenDialog = (professor) => {
     setSelectedProfessor(professor);
@@ -50,14 +49,13 @@ const Page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Contact Details Submitted: ", contactDetails);
   };
 
   return (
     <Box>
       <Appbar />
       <Box
-        height={"40vh"}
+        height={"50vh"}
         sx={{
           background: "linear-gradient(45deg, #10b981 30%, #059669 90%)",
           display: "flex",
@@ -163,136 +161,6 @@ const Page = () => {
           ))}
         </Grid>
       </Container>
-      <Container maxWidth="lg" sx={{ my: 5 }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 600,
-            color: "#064e3b",
-            mb: 3,
-            textAlign: "center",
-          }}
-        >
-          Contact Us
-        </Typography>
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 3,
-            backgroundColor: "#ecfdf5",
-            padding: 4,
-            borderRadius: 2,
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          <TextField
-            label="Name"
-            name="name"
-            variant="outlined"
-            value={contactDetails.name}
-            onChange={handleChange}
-            required
-            sx={{
-              backgroundColor: "#ffffff",
-              "& .MuiInputLabel-root": {
-                color: "#059669",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "#059669",
-                },
-                "&:hover fieldset": {
-                  borderColor: "#059669",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "#059669",
-                },
-              },
-            }}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            placeholder="Your Name"
-          />
-          <TextField
-            label="Email"
-            name="email"
-            variant="outlined"
-            type="email"
-            value={contactDetails.email}
-            onChange={handleChange}
-            required
-            sx={{
-              backgroundColor: "#ffffff",
-              "& .MuiInputLabel-root": {
-                color: "#059669",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "#059669",
-                },
-                "&:hover fieldset": {
-                  borderColor: "#059669",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "#059669",
-                },
-              },
-            }}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            placeholder="Your Email"
-          />
-          <TextField
-            label="Message"
-            name="message"
-            variant="outlined"
-            multiline
-            rows={4}
-            value={contactDetails.message}
-            onChange={handleChange}
-            required
-            sx={{
-              backgroundColor: "#ffffff",
-              "& .MuiInputLabel-root": {
-                color: "#059669",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "#059669",
-                },
-                "&:hover fieldset": {
-                  borderColor: "#059669",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "#059669",
-                },
-              },
-            }}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            placeholder="Your Message"
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{
-              backgroundColor: "#10b981",
-              color: "#fff",
-              "&:hover": {
-                backgroundColor: "#059669",
-              },
-            }}
-          >
-            Send Message
-          </Button>
-        </Box>
-      </Container>
       <Dialog
         open={openDialog}
         onClose={handleCloseDialog}
@@ -321,75 +189,118 @@ const Page = () => {
             <Typography variant="h6" sx={{ fontWeight: 600, color: "#fff" }}>
               {selectedProfessor?.professor}
             </Typography>
+            <Typography variant="p" sx={{ color: theme => theme.palette.emerald[200], fontSize: "10px" }}>
+              {selectedProfessor?.email}
+            </Typography>
           </Box>
         </DialogTitle>
-        <DialogContent sx={{ padding: 3 }}>
-          <Container maxWidth="md">
-            <Box sx={{ mb: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 600, color: "#064e3b" }}
-              >
-                Bio
-              </Typography>
-              <Typography sx={{ color: "#064e3b" }}>
-                {selectedProfessor?.about}
-              </Typography>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 600, color: "#064e3b" }}
-              >
-                Subjects
-              </Typography>
-              <ul style={{ paddingLeft: "2rem" }}>
-                {selectedProfessor?.subjects.map((subject, idx) => (
-                  <li key={idx}>
-                    <Typography sx={{ color: "#064e3b" }}>{subject}</Typography>
-                  </li>
-                ))}
-              </ul>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 600, color: "#064e3b" }}
-              >
-                Office Hours
-              </Typography>
-              <Typography sx={{ color: "#064e3b" }}>
-                {selectedProfessor?.officeHours}
-              </Typography>
-            </Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 600, color: "#064e3b" }}
-              >
-                Achievements
-              </Typography>
-              <ul style={{ paddingLeft: "2rem" }}>
-                {selectedProfessor?.achievements.map((achievement, idx) => (
-                  <li key={idx}>
-                    <Typography sx={{ color: "#064e3b" }}>
-                      {achievement}
-                    </Typography>
-                  </li>
-                ))}
-              </ul>
-            </Box>
-            <Box>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 600, color: "#064e3b" }}
-              >
-                Experience
-              </Typography>
-              <Typography sx={{ color: "#064e3b" }}>
-                {selectedProfessor?.experience} years
-              </Typography>
-            </Box>
+        <DialogContent>
+          <Container sx={{my: 4}}>
+            <Grid container rowSpacing={4}>
+              <Grid item md={6} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Subjects
+                </Typography>
+                <ul style={{ paddingLeft: "2rem" }}>
+                  {selectedProfessor?.subjects.map((subject, idx) => (
+                    <li key={idx}>
+                      <Typography sx={{ color: "#064e3b" }}>
+                        {subject}
+                      </Typography>
+                    </li>
+                  ))}
+                </ul>
+              </Grid>
+              <Grid item md={6} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Soft Skills
+                </Typography>
+                <ul style={{ paddingLeft: "2rem" }}>
+                  {selectedProfessor?.softSkills.map((skill, idx) => (
+                    <li key={idx}>
+                      <Typography sx={{ color: "#064e3b" }}>{skill}</Typography>
+                    </li>
+                  ))}
+                </ul>
+              </Grid>
+              <Grid item md={6} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Title
+                </Typography>
+                <Typography sx={{ color: "#064e3b" }}>
+                  {selectedProfessor?.title}
+                </Typography>
+
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Experience
+                </Typography>
+                <Typography sx={{ color: "#064e3b" }}>
+                  {selectedProfessor?.experience} years
+                </Typography>
+              </Grid>
+              <Grid item md={6} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Teaching Style
+                </Typography>
+                <Typography sx={{ color: "#064e3b" }}>
+                  {selectedProfessor?.teachingStyle}
+                </Typography>
+              </Grid>
+              <Grid item md={12} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  About
+                </Typography>
+                <Typography sx={{ color: "#064e3b" }}>
+                  {selectedProfessor?.about}
+                </Typography>
+              </Grid>
+              <Grid item md={6} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Achievements
+                </Typography>
+                <ul style={{ paddingLeft: "2rem" }}>
+                  {selectedProfessor?.achievements.map((achievement, idx) => (
+                    <li key={idx}>
+                      <Typography sx={{ color: "#064e3b" }}>
+                        {achievement}
+                      </Typography>
+                    </li>
+                  ))}
+                </ul>
+              </Grid>
+              <Grid item md={6} sm={12}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 600, color: "#064e3b" }}
+                >
+                  Office Hours
+                </Typography>
+                <Typography sx={{ color: "#064e3b" }}>
+                  {selectedProfessor?.officeHours}
+                </Typography>
+              </Grid>
+            </Grid>
           </Container>
         </DialogContent>
       </Dialog>

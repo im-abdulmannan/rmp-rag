@@ -59,7 +59,6 @@ const Chat = ({ user }) => {
         return reader.read().then(processText);
       });
     });
-    console.log("🚀 ~ sendMessage ~ response:", response);
   };
 
   return (
